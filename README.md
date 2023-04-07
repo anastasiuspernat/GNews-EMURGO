@@ -74,14 +74,25 @@ console.log(articles);
 ```json
 [
   {
-    "title": "string",
-    "description": "string",
-    "url": "string",
-    "image": "string",
-    "publishedAt": "2019-08-24T14:15:22Z",
+    "title": "Article Title",
+    "description": "Article description.",
+    "url": "https://example.com/article",
+    "image": "https://example.com/article.jpg",
+    "publishedAt": "2022-05-10T12:34:56Z",
     "source": {
-      "name": "string",
-      "url": "string"
+      "name": "Example News",
+      "url": "https://example.com"
+    }
+  },
+  {
+    "title": "Another Article",
+    "description": "Another article description.",
+    "url": "https://example.com/another-article",
+    "image": "https://example.com/another-article.jpg",
+    "publishedAt": "2022-05-09T09:12:34Z",
+    "source": {
+      "name": "Example News",
+      "url": "https://example.com"
     }
   }
 ]
@@ -123,7 +134,39 @@ This operation does not require authentication
 let articles = await fetch('http://localhost:3000/articles/search?q=Bitcoin%20Reaches%20Another%20High');
 ```
 
-`GET articles/search`
+`GET /articles/search`
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "title": "Technology News Article",
+    "description": "Article description.",
+    "url": "https://example.com/article",
+    "image": "https://example.com/article.jpg",
+    "publishedAt": "2022-05-10T12:34:56Z",
+    "source": {
+      "name": "Example News",
+      "url": "https://example.com"
+    }
+  },
+  {
+    "title": "Another Technology Article",
+    "description": "Another article description.",
+    "url": "https://example.com/another-article",
+    "image": "https://example.com/another-article.jpg",
+    "publishedAt": "2022-05-09T09:12:34Z",
+    "source": {
+      "name": "Example News",
+      "url": "https://example.com"
+    }
+  }
+]
+```
+
 
 <h3 id="_search__articles-responses">Responses</h3>
 
@@ -142,7 +185,28 @@ This operation does not require authentication
 let articles = await fetch('http://localhost:3000/articles/Bitcoin'),
 ```
 
-`GET /articles`
+`GET /articles/:title`
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+    {
+    "title": "Bitcoin",
+    "description": "Article description.",
+    "url": "https://example.com/article",
+    "image": "https://example.com/article.jpg",
+    "publishedAt": "2022-05-10T12:34:56Z",
+    "source": {
+      "name": "Example News",
+      "url": "https://example.com"
+    }
+  }
+]
+```
+
 
 <h3 id="_{title}__articles-responses">Responses</h3>
 
@@ -189,4 +253,8 @@ This operation does not require authentication
 |source|object|true|none|none|
 |» name|string|false|none|The name of the news source|
 |» url|string|false|none|The URL of the news source|
+
+
+# Caching
+The News API service caches the results of each API request for 1 hour to improve performance. If the same request is made within 1 hour, the cached results will be returned instead of making a new request to the GNews API.
 
