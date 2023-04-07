@@ -1,5 +1,6 @@
 # GNews API
 This is a simple API that interacts with the GNews API for fetching news articles.
+It includes unit tests and github workflow integration.
 
 # Installation
 To install the project dependencies, run the following command:
