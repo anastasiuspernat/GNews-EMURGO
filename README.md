@@ -13,7 +13,7 @@ To start the API server, run the following command:
 ```
 npm start
 ```
-This will start the server on port 3000 by default.
+This will start the server on port 3000 by default. You need to provide an API key in the `API_KEY` constant in the code. A sample key is included.
 
 # Testing
 To run the Jest test suite, run the following command:
@@ -44,7 +44,7 @@ Base URLs:
 # Authentication
 
 * API Key (apiKey)
-    - Parameter Name: **token**, in: query. 
+    - Parameter Name: **token**, in: code. 
 
 <h1 id="news-api-default">Default</h1>
 
@@ -120,7 +120,7 @@ This operation does not require authentication
 > Code samples
 
 ```javascript
-let articles = await fetch('http://localhost:3000/search?q=Bitcoin%20Reaches%20Another%20Hight');
+let articles = await fetch('http://localhost:3000/search?q=Bitcoin%20Reaches%20Another%20High');
 ```
 
 `GET /search`

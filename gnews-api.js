@@ -82,8 +82,6 @@ app.get('/articles/:title', async (req, res) => {
     const response = await axios.get(`https://gnews.io/api/v4/search?q=${encodeURIComponent(title)}&token=${API_KEY}`);
     const data = response.data.articles.find(article => article.title.includes(title));
 
-    console.log("####### Data", data);
-    
     // Store data in cache
     cache.set(cacheKey, data);
     
