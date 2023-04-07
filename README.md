@@ -7,7 +7,6 @@ Features:
 4) API Docs 
 5) Basic unit testing with Jest 
 6) Github workflow integration with unit tests for commit validation
-7) A PHP example of the same API
 
 # Installation
 To install the project dependencies, run the following command:
