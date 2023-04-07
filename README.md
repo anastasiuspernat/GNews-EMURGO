@@ -32,10 +32,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 # News API v1.0.0 Documentation
 
-News API v1.0.0
-
-> Scroll down for code samples, example requests and responses. 
-
 API service for fetching news articles from the GNews API
 
 Base URLs:
