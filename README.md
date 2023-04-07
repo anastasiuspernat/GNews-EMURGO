@@ -44,32 +44,28 @@ Base URLs:
 # Authentication
 
 * API Key (apiKey)
-    - Parameter Name: **token**, in: code. 
+    - Parameter Name: **API_KEY**, in: code. 
 
-<h1 id="news-api-default">Default</h1>
+# Endpoints
 
-# articles
-
-> Code samples
+## `GET /articles`
 
 ```javascript
 let articles = await fetch('http://localhost:3000/articles?n=2'),
 console.log(articles);
 ```
 
-`GET /articles`
+### Fetch N news articles
+<br>
 
-*Fetch N news articles*
 
-<h3 id="get__articles-parameters">Parameters</h3>
+## Parameters
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|n|query|integer|false|The number of articles to fetch (maximum 100)|
+|n|query|integer|yes|The number of articles to fetch (maximum 100)|
 
-> Example responses
-
-> 200 Response
+### Example response
 
 ```json
 [
@@ -98,7 +94,7 @@ console.log(articles);
 ]
 ```
 
-<h3 id="get__articles-responses">Responses</h3>
+### Other Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -106,44 +102,33 @@ console.log(articles);
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid request parameters|None|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error|None|
 
-<h3 id="get__articles-responseschema">Response Schema</h3>
+<br>
 
-Status Code **200**
+## `GET /articles/search`
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[Article](#schemaarticle)]|false|none|none|
-|» title|string|true|none|The title of the article|
-|» description|string|true|none|A brief description of the article|
-|» url|string|true|none|The URL of the article|
-|» image|string|false|none|The URL of the article's image|
-|» publishedAt|string(date-time)|true|none|The date and time the article was published|
-|» source|object|true|none|none|
-|»» name|string|false|none|The name of the news source|
-|»» url|string|false|none|The URL of the news source|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-# articles/search
-
-> Code samples
 
 ```javascript
-let articles = await fetch('http://localhost:3000/articles/search?q=Bitcoin%20Reaches%20Another%20High');
+let articles = await fetch('http://localhost:3000/articles/search?q=Cardano%20Reaches%20Another%20High');
 ```
 
-`GET /articles/search`
+### Searches for news articles based on a query string.
+<br>
 
-> Example responses
 
-> 200 Response
+## Parameters
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|q|query|string|yes|The search query.|
+
+
+
+### Example response
 
 ```json
 [
   {
-    "title": "Technology News Article",
+    "title": "Cardano News Article",
     "description": "Article description.",
     "url": "https://example.com/article",
     "image": "https://example.com/article.jpg",
@@ -154,7 +139,7 @@ let articles = await fetch('http://localhost:3000/articles/search?q=Bitcoin%20Re
     }
   },
   {
-    "title": "Another Technology Article",
+    "title": "Another Cardano Article",
     "description": "Another article description.",
     "url": "https://example.com/another-article",
     "image": "https://example.com/another-article.jpg",
@@ -168,28 +153,31 @@ let articles = await fetch('http://localhost:3000/articles/search?q=Bitcoin%20Re
 ```
 
 
-<h3 id="_search__articles-responses">Responses</h3>
+### Other Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid request parameters|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error|None|
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+<br>
 
-# articles/{title}
 
-> Code samples
+# `GET /articles/:title`
 
 ```javascript
 let articles = await fetch('http://localhost:3000/articles/Bitcoin'),
 ```
 
-`GET /articles/:title`
+## Parameters
 
-> Example responses
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|title|query|string|yes|The title of the article to retrieve.|
 
-> 200 Response
+
+### Example response
 
 ```json
 [
@@ -208,14 +196,14 @@ let articles = await fetch('http://localhost:3000/articles/Bitcoin'),
 ```
 
 
-<h3 id="_{title}__articles-responses">Responses</h3>
+### Other Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid request parameters|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error|None|
 
-<aside class="success">
-This operation does not require authentication
-</aside>
 
 # Schemas
 
@@ -250,7 +238,7 @@ This operation does not require authentication
 |url|string|true|none|The URL of the article|
 |image|string|false|none|The URL of the article's image|
 |publishedAt|string(date-time)|true|none|The date and time the article was published|
-|source|object|true|none|none|
+|source|object|true|none|source of the article|
 |» name|string|false|none|The name of the news source|
 |» url|string|false|none|The URL of the news source|
 
