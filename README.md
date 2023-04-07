@@ -15,7 +15,6 @@ npm start
 ```
 This will start the server on port 3000 by default.
 
-
 # Testing
 To run the Jest test suite, run the following command:
 
@@ -34,7 +33,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 News API v1.0.0
 
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+> Scroll down for code samples, example requests and responses. 
 
 API service for fetching news articles from the GNews API
 
@@ -54,7 +53,7 @@ Base URLs:
 > Code samples
 
 ```javascript
-let articles = await fetch('http://localhost:3000/articles?n=2',
+let articles = await fetch('http://localhost:3000/articles?n=2'),
 console.log(articles);
 ```
 
