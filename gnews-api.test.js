@@ -1,6 +1,10 @@
 const request = require('supertest');
 const NodeCache = require('node-cache');
-const { app, cache } = require('./gnews-api.js');
+const { app, cache, server } = require('./gnews-api.js');
+
+afterAll((done) => {
+  server.close(done);
+});
 
 describe('GET /articles', () => {
   const n = 2;

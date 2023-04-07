@@ -95,7 +95,7 @@ app.get('/articles/:title', async (req, res) => {
 });
 
 // Start the server
-app.listen(3000, () => console.log('Server started on port 3000'));
+const server = app.listen(3000, () => console.log('Server started on port 3000'));
 
 // Needed for Jest tests, see gnews-api.test.js
-module.exports = { app, cache };
+module.exports = { app, cache, server };
