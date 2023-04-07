@@ -1,12 +1,13 @@
 # GNews API
 This is a simple API that interacts with the GNews API for fetching news articles.
 Features:
-1) Node.js server that uses `express` to serve pages, `axios` to fetch data from GNews API and `node-cache` to cache requests
+1) Node.js/Javascript server that uses `express` to serve pages, `axios` to fetch data from GNews API and `node-cache` to cache requests
 2) It parses errors from the GNews API and displays them to user along with 500 HTTP status code
 3) RESTful API (see docs on the endpoints below)
 4) API Docs 
 5) Basic unit testing with Jest 
 6) Github workflow integration with unit tests for commit validation
+7) A PHP example of the same API
 
 # Installation
 To install the project dependencies, run the following command:
@@ -31,9 +32,6 @@ npm test
 This will run the tests and output the results to the console.
 
 Note: The tests use the supertest library to test the API endpoints. The tests assume that the API server is running on port 3000. If you're running the server on a different port, you may need to modify the tests accordingly.
-
-# License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 
 # News API v1.0.0 Documentation
