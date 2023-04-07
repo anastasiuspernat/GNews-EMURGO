@@ -1,6 +1,9 @@
 /**
  * Unit tests for the GNews API
  * We use Jest for testing, see https://jestjs.io/docs/getting-started
+ * 
+ * NOTE: These tests are pretty basic and don't cover all possible cases, but they are enough for this example
+ * We can use Fixtures, test database with beforeEach and afterEach, etc. to make the tests more robust in the future
  */
 const request = require('supertest');
 const NodeCache = require('node-cache');
