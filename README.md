@@ -204,14 +204,9 @@ let articles = await fetch('http://localhost:3000/articles/Bitcoin'),
 
 # Schemas
 
-<h2 id="tocS_Article">Article</h2>
-<!-- backwards compatibility -->
-<a id="schemaarticle"></a>
-<a id="schema_Article"></a>
-<a id="tocSarticle"></a>
-<a id="tocsarticle"></a>
+## Article
 
-```json
+```
 {
   "title": "string",
   "description": "string",
@@ -228,16 +223,16 @@ let articles = await fetch('http://localhost:3000/articles/Bitcoin'),
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|title|string|true|none|The title of the article|
-|description|string|true|none|A brief description of the article|
-|url|string|true|none|The URL of the article|
-|image|string|false|none|The URL of the article's image|
-|publishedAt|string(date-time)|true|none|The date and time the article was published|
-|source|object|true|none|source of the article|
-|» name|string|false|none|The name of the news source|
-|» url|string|false|none|The URL of the news source|
+|Name|Type|Description|
+|---|---|---|
+|title|string|The title of the article|
+|description|string|A brief description of the article|
+|url|string|The URL of the article|
+|image|string|The URL of the article's image|
+|publishedAt|string(date-time)|The date and time the article was published|
+|source|object|source of the article|
+|» name|string|The name of the news source|
+|» url|string|The URL of the news source|
 
 
 # Caching
