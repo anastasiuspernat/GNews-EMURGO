@@ -11,7 +11,7 @@ const NodeCache = require('node-cache');
 // Define API key
 // NOTE: You will need to get your own API key from https://gnews.io/
 // This one is for demonstration purposes only and will stop working after a while
-const API_KEY = '640e0a8b4d1671b80f383f439d4d9785';
+const API_KEY = '2e7e755401da739bacd26d35a14d7982';
 
 // Initialize NodeCache, will be used to store API responses and return them for subsequent requests
 const cache = new NodeCache();

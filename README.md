@@ -52,15 +52,13 @@ Base URLs:
 # Endpoints
 
 ## `GET /articles`
+### Fetch N news articles
 
 ```javascript
 let articles = await fetch('http://localhost:3000/articles?n=2'),
 console.log(articles);
 ```
-
-### Fetch N news articles
 <br>
-
 
 ## Parameters
 
@@ -108,15 +106,13 @@ console.log(articles);
 <br>
 
 ## `GET /articles/search`
+### Searches for news articles based on a query string.
 
 
 ```javascript
 let articles = await fetch('http://localhost:3000/articles/search?q=Cardano%20Reaches%20Another%20High');
 ```
-
-### Searches for news articles based on a query string.
 <br>
-
 
 ## Parameters
 
@@ -167,7 +163,8 @@ let articles = await fetch('http://localhost:3000/articles/search?q=Cardano%20Re
 <br>
 
 
-# `GET /articles/:title`
+## `GET /articles/:title`
+### Returns article by title
 
 ```javascript
 let articles = await fetch('http://localhost:3000/articles/Bitcoin'),
