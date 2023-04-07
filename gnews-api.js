@@ -19,6 +19,18 @@ const cache = new NodeCache();
 // Create Express app
 const app = express();
 
+/**
+ * Convert GNews API error to string, display it to log and return it to the user as a 500 status code
+ * @param {*} error is the error object from catch block
+ * @param {*} res is the response object
+ * @param {*} userMessage is the error message to display to the user 
+ */
+function processError(error, res, userMessage) {
+  const gnewsMessage = error.response && error.response.data ? error.response.data.errors : error;
+  console.error(gnewsMessage);
+  res.status(500).send(`${userMessage}: ${gnewsMessage}`);
+}
+
 // Define API endpoints
 
 /**
@@ -55,19 +67,18 @@ app.get('/articles', async (req, res) => {
       const response = await axios.get(`https://gnews.io/api/v4/top-headlines?token=${API_KEY}&country=us&max=${n}`);
 
       // Get articles from response, it's an array from GNews API, see https://gnews.io/docs/v4
-      const data = response.data.articles;
+      const articles = response.data.articles;
       
       // Store data in cache
-      cache.set(cacheKey, data);
+      cache.set(cacheKey, articles);
       
       // Return data as JSON
-      res.json(data);
+      res.json(articles);
 
     } catch (error) {
 
       // If there is an error, log it and return a 500 status code
-      console.error(error);
-      res.status(500).send('Error fetching articles');
+      processError(error,res,'Error fetching articles');
     }
   }
 });
@@ -108,8 +119,7 @@ app.get('/articles/search', async (req, res) => {
   } catch (error) {
 
     // If there is an error, log it and return a 500 status code
-    console.error(error);
-    res.status(500).send('Error searching articles');
+    processError(error,res,'Error fetching article');
   }
 });
 
@@ -151,8 +161,7 @@ app.get('/articles/:title', async (req, res) => {
   } catch (error) {
 
     // If there is an error, log it and return a 500 status code
-    console.error(error);
-    res.status(500).send(`Error finding article with title ${title}`);
+    processError(error,res,`Error finding article with title ${title}`);
   }
 });
 

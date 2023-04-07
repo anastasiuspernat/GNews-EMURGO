@@ -1,6 +1,12 @@
 # GNews API
 This is a simple API that interacts with the GNews API for fetching news articles.
-It includes unit tests and github workflow integration.
+Features:
+1) Node.js server that uses `express` to serve pages, `axios` to fetch data from GNews API and `node-cache` to cache requests
+2) It parses errors from the GNews API and displays them to user along with 500 HTTP status code
+3) RESTful API (see docs on the endpoints below)
+4) API Docs 
+5) Basic unit testing with Jest 
+6) Github workflow integration with unit tests for commit validation
 
 # Installation
 To install the project dependencies, run the following command:
