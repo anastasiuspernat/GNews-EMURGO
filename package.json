@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "test": "jest",
+    "start": "node gnews-api.js"
+  },
+  "dependencies": {
+    "axios": "^1.3.5",
+    "node-cache": "^5.1.2",
+    "widdershins": "^4.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "supertest": "^6.3.3"
+  }
+}
