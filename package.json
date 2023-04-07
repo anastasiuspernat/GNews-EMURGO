@@ -1,4 +1,8 @@
 {
+  "name": "gnews-api",
+  "version": "1.0.0",
+  "description": "A sample API for gnews with docs, unit tests and github pipeline integration",
+  "main": "gnews-api.js", 
   "scripts": {
     "test": "jest",
     "start": "node gnews-api.js"
