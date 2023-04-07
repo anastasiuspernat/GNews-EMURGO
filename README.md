@@ -115,15 +115,15 @@ Status Code **200**
 This operation does not require authentication
 </aside>
 
-# search
+# articles/search
 
 > Code samples
 
 ```javascript
-let articles = await fetch('http://localhost:3000/search?q=Bitcoin%20Reaches%20Another%20High');
+let articles = await fetch('http://localhost:3000/articles/search?q=Bitcoin%20Reaches%20Another%20High');
 ```
 
-`GET /search`
+`GET articles/search`
 
 <h3 id="_search__articles-responses">Responses</h3>
 
